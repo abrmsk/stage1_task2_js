@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.1.15</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html">back</a>
+    <ul class="navigate_tasks">
+        <li><a href="task01_02.html">Tasks 1, 2</a></li>
+        <li><a href="task03.html">Tasks 3</a></li>
+        <li><a href="task04.html">Tasks 4</a></li>
+        <li><a href="task05.html">Tasks 5</a></li>
+        <li><a href="task06.html">Tasks 6</a></li>
+        <li><a href="task07.html">Tasks 7</a></li>
+        <li><a href="task08.html">Tasks 8</a></li>
+        <li><a href="task09.html">Tasks 9</a></li>
+        <li><a href="task10_11_12.html">Tasks 10, 11, 12</a></li>
+        <li><a href="task13.html">Tasks 13</a></li>
+        <li><a href="task14.html">Tasks 14</a></li>
+        <li class="active"><a href="task15.html">Tasks 15</a></li>
+        <li><a href="task16.html">Tasks 16</a></li>
+        <li><a href="task17.html">Tasks 17</a></li>
+        <li><a href="task18.html">Tasks 18</a></li>
+        <li><a href="task19.html">Tasks 19</a></li>
+    </ul>
+</nav>
+
+<section class="main">
+    <div class="wrapper">
+        <h2 class="assignment">Task 2.1.15</h2>
+        <div class="task2115">
+            <div id="external_block">
+                <div id="inner_block"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const external = document.getElementById('external_block');
+    const inner = document.getElementById('inner_block');
+
+    external.onclick = (e) => {
+        e.target === external ? alert('External block') : '';
+    }
+    inner.onclick = (e) => {
+        e.target === inner ? alert('Inner block') : '';
+    }
+
+</script>
+</body>
+</html>

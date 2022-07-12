@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.1.1, 2.1.2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav>
+    <a href="index.html">back</a>
+    <ul class="navigate_tasks">
+        <li class="active"><a href="task01_02.html">Tasks 1, 2</a></li>
+        <li><a href="task03.html">Tasks 3</a></li>
+        <li><a href="task04.html">Tasks 4</a></li>
+        <li><a href="task05.html">Tasks 5</a></li>
+        <li><a href="task06.html">Tasks 6</a></li>
+        <li><a href="task07.html">Tasks 7</a></li>
+        <li><a href="task08.html">Tasks 8</a></li>
+        <li><a href="task09.html">Tasks 9</a></li>
+        <li><a href="task10_11_12.html">Tasks 10, 11, 12</a></li>
+        <li><a href="task13.html">Tasks 13</a></li>
+        <li><a href="task14.html">Tasks 14</a></li>
+        <li><a href="task15.html">Tasks 15</a></li>
+        <li><a href="task16.html">Tasks 16</a></li>
+        <li><a href="task17.html">Tasks 17</a></li>
+        <li><a href="task18.html">Tasks 18</a></li>
+        <li><a href="task19.html">Tasks 19</a></li>
+    </ul>
+</nav>
+
+<section class="main">
+    <div class="wrapper">
+            <h2 class="assignment">Tasks 2.1.1 <span>(i, ii, iii)</span> & 2.1.2</h2>
+
+        <div class="task211_212">
+
+            <div class="container">
+                <h3 class="title">use css</h3>
+                <p>(display: none)</p>
+                <button id="button_css" class="button">Button CSS</button>
+                <div id="object_css" class="obj"></div>
+            </div>
+
+            <div class="container">
+                <h3 class="title">use js</h3>
+                <p>(remove element)</p>
+                <button id="button_js" class="button">Button JS</button>
+                <div id="object_js" class="obj"></div>
+            </div>
+
+            <div class="container">
+                <h3 class="title">use css & js</h3>
+                <p>(add class hidden)</p>
+                <button id="button_css_js" class="button">Button CSS & JS</button>
+                <div id="object_css_js" class="obj"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById("button_css").addEventListener("click", () => {
+        if (document.getElementById("object_css").style.display !== "none") {
+            document.getElementById("object_css").style.display = "none";
+        } else {
+            document.getElementById("object_css").style.display = "block";
+        }
+    })
+
+    document.getElementById("button_js").addEventListener("click", () => {
+        if (document.getElementById("object_js")) {
+            document.getElementById("object_js").remove()
+        } else {
+            let par = document.getElementById("button_js").parentElement;
+            let div = document.createElement("DIV");
+            div.id = "object_js"
+            div.classList.add("obj")
+            par.appendChild(div);
+        }
+    })
+
+    document.getElementById("button_css_js").addEventListener("click", () => {
+        if (!document.getElementById("object_css_js").classList.contains("hidden")) {
+            document.getElementById("object_css_js").classList.add("hidden");
+
+        } else {
+            document.getElementById("object_css_js").classList.remove("hidden");
+        }
+    })
+</script>
+</body>
+</html>

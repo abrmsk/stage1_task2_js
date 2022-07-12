@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.1.4</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav>
+    <a href="index.html">back</a>
+    <ul class="navigate_tasks">
+        <li><a href="task01_02.html">Tasks 1, 2</a></li>
+        <li><a href="task03.html">Tasks 3</a></li>
+        <li class="active"><a href="task04.html">Tasks 4</a></li>
+        <li><a href="task05.html">Tasks 5</a></li>
+        <li><a href="task06.html">Tasks 6</a></li>
+        <li><a href="task07.html">Tasks 7</a></li>
+        <li><a href="task08.html">Tasks 8</a></li>
+        <li><a href="task09.html">Tasks 9</a></li>
+        <li><a href="task10_11_12.html">Tasks 10, 11, 12</a></li>
+        <li><a href="task13.html">Tasks 13</a></li>
+        <li><a href="task14.html">Tasks 14</a></li>
+        <li><a href="task15.html">Tasks 15</a></li>
+        <li><a href="task16.html">Tasks 16</a></li>
+        <li><a href="task17.html">Tasks 17</a></li>
+        <li><a href="task18.html">Tasks 18</a></li>
+        <li><a href="task19.html">Tasks 19</a></li>
+    </ul>
+</nav>
+
+<section class="main">
+    <div class="wrapper">
+        <div class="objects">
+            <div class="obj1">OBJECT 1</div>
+            <div class="obj2">OBJECT 2</div>
+            <div class="obj3">OBJECT 3</div>
+            <div class="obj4">OBJECT 4</div>
+            <div class="obj5">OBJECT 5</div>
+        </div>
+
+        <h2 class="assignment">Task 2.1.4</h2>
+        <div class="task214">
+            <p>Select the selector of the object you want to hide (the first element found in the document will be
+                hidden)</p>
+            <label for="selectors_list">Select class: </label>
+            <select id="selectors_list" name="selectors"></select>
+            <button id="id_button_select_selectors">Go</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    // add all selectors on page within array
+    let all = document.body.getElementsByTagName("*");
+    let set = new Set();
+
+    for (let i = 0; i < all.length; i++) {
+        let arr = all[i].className.split(" ")
+
+        if (arr.length === 1 && arr[0] === "") continue;
+
+        arr.forEach(e => set.add(e))
+    }
+    all = null;
+
+    // Write list to html document
+    let parentSelectorLists = document.getElementById("selectors_list");
+    for (let [key, value] of set.entries()) {
+        const optionElement = document.createElement("OPTION");
+        optionElement.appendChild(document.createTextNode(value))
+        optionElement.value = value;
+        parentSelectorLists.appendChild(optionElement)
+    }
+    parentSelectorLists = null;
+    set = null;
+
+    // Action button (Main task)
+    const button1 = document.getElementById("id_button_select_selectors")
+    button1.addEventListener("click", () => {
+        let selector = document.getElementById("selectors_list")
+
+        const elem = document.querySelector("." + selector.value)
+
+        if (elem.classList.contains("hidden")) {
+            elem.classList.remove("hidden");
+        } else {
+            elem.classList.add("hidden");
+        }
+    })
+</script>
+</body>
+</html>
